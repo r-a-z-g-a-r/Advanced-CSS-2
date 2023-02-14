@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced CSS - Assignment 2</title>
+    <style>
+		body {
+			background: #050210;
+		}
+		
+		.rainbow {
+			height: 400px;
+			width: 400px;
+			margin: 100px auto;
+			background: conic-gradient(#fb5dad, #55fb9f, #b97aff, #55fb9f, #fb5dad);
+			border-radius: 50%;
+			animation-name: spin;
+			animation-duration: 1s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+		}
+		
+		@keyframes spin {
+			from {
+			transform: rotate(0deg);
+			}
+			to {
+			transform: rotate(360deg);
+			}
+		}
+		
+		.blue {
+			height: 352px;
+			width: 352px;
+			background: #050210;
+			border-radius: 50%;
+			position: relative;
+			left: 24px;
+			top: 24px;
+			z-index: 1;
+		}
+		
+		.zoom {
+			border-radius: 50%;
+			width: 1px;
+			height: 1px;
+			position: absolute;
+			left: 175px;
+			top: 175px;
+			animation-name: zoom;
+			animation-duration: 2.5s;
+			animation-timing-function: ease-out;
+			animation-iteration-count: infinite;
+		}
+		
+		#zoom2 {
+			animation-delay: 1.25s;
+			position: absolute;
+			bottom: 500px;
+		}
+		
+		@keyframes zoom {
+			0% {
+				background: rgba(27, 16, 60, 0.5);
+			}
+			100% {
+				transform: scale(350);
+			}
+		}
+		
+		.blur {
+			filter: blur(50px);
+			z-index: -1;
+			position: relative;
+			bottom: 500px;
+		}
+		
+		#circle::after {
+			content: "Loading...";
+			color: white;
+			font-family: "Arial", sans-serif;
+			font-size: 20pt;
+			position: absolute;
+			top: 75%;
+			width: 99%;
+			text-align: center;
+		}
+    </style>
+</head>
+
+<body>
+	<div id="circle">
+		<div id="main" class="rainbow"><div class="blue"><div class="zoom"></div><div class="zoom" id="zoom2"></div></div></div>
+		<div class="rainbow blur"></div>
+	</div>
+</body>
+
+</html>
